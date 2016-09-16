@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="masterSupplier" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7d62081a-e704-4b90-9b6c-703a0dcbba96">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="id" class="java.lang.Long"/>
+	<field name="nama" class="java.lang.String"/>
+	<field name="keterangan" class="java.lang.String"/>
+	<field name="maxLimit" class="java.lang.Double"/>
+	<field name="sisa" class="java.lang.Double"/>
+	<field name="isTutup" class="java.lang.Boolean"/>
+	<variable name="no" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{id}]]></variableExpression>
+	</variable>
+	<variable name="lastupdate" class="java.util.Date">
+		<variableExpression><![CDATA[new Date()]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="33" uuid="e83db794-6e7f-498d-af63-813caf7d5303"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Daftar Customer]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="8" y="10" width="67" height="22" backcolor="#CCCCFF" uuid="b6b868a0-86eb-4688-a8c6-cee605d3d235"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="75" y="10" width="146" height="22" backcolor="#CCCCFF" uuid="a5fa6e06-011e-478a-8da1-e6a68b5627d2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="221" y="10" width="227" height="22" backcolor="#CCCCFF" uuid="9918a6df-498e-4fd8-b32a-6eace56baa39"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="448" y="10" width="131" height="22" backcolor="#CCCCFF" uuid="a61bb0ae-76b8-4972-a88c-184c694b39d1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Limit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="579" y="10" width="123" height="22" backcolor="#CCCCFF" uuid="92bab542-351d-44f6-82e4-b9d359976278"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Sisa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="702" y="10" width="95" height="22" backcolor="#CCCCFF" uuid="9c206f9b-6c38-4333-8de5-f0891640c14b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Selesai]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement x="75" y="0" width="146" height="17" uuid="10f24116-7319-4958-8767-69b8a5cd52a9"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="8" y="0" width="67" height="17" uuid="3591fdad-1891-42e3-9757-22f7169d4145"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{no}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="221" y="0" width="227" height="17" uuid="3bbfaa71-1fdd-4ec9-b403-7fb2459a7eaf"/>
+				<textFieldExpression><![CDATA[$F{keterangan}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="448" y="0" width="126" height="17" uuid="a00977f8-0a0d-489d-9335-1011d41d6355"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{maxLimit}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="574" y="0" width="128" height="17" uuid="53cad5a1-4d1d-42f8-b754-3a2656e034bd"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{sisa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="702" y="0" width="95" height="17" uuid="d2fd4251-ad36-4005-a1ca-dde7f673628d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{isTutup}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="574" y="0" width="223" height="22" uuid="f6720f9d-4ba5-4ae1-9947-4861c4b21260"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy - HH:mm:ss">
+				<reportElement x="8" y="2" width="280" height="20" uuid="c05b3380-a2da-4be5-8fc8-bafbd293b1fb"/>
+				<textFieldExpression><![CDATA[$V{lastupdate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
